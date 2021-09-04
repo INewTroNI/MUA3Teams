@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <iostream>
 #include <map>
+#include <vector>
 
 enum class bonusTeam : std::uint_fast8_t
 {
@@ -84,7 +85,9 @@ private:
 	bonusType m_type{ bonusType::none };
 	
 public:
-	TeamBonus(bonusTeam id, bonusPower power, bonusType type) 
+	TeamBonus(bonusTeam id = bonusTeam::none
+	, bonusPower power = bonusPower::none
+	, bonusType type = bonusType::none)
 		: m_id{ id }, m_power{ power }, m_type{ type }
 	{ }
 	bonusTeam getID() const { return m_id; }

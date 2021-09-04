@@ -261,7 +261,7 @@ std::map<bonusTeam, TeamBonus> getTeamBonuses()
 	using b_t = bonusType;
 	
 	bnsList[bt::NewAvengers] = TeamBonus{ bt::NewAvengers, bp::bonus2_4_7, b_t::dur };
-	/*
+	
 	bnsList[bt::GuardiansOfTheGalaxy] 
 	= TeamBonus{ bt::GuardiansOfTheGalaxy, bp::bonus2_4_8, b_t::res };
 	
@@ -372,7 +372,7 @@ std::map<bonusTeam, TeamBonus> getTeamBonuses()
 	
 	bnsList[bt::SmoothOperators] 
 	= TeamBonus{ bt::SmoothOperators, bp::bonus3_6_10, b_t::vit };
-	*/
+	
 	return bnsList;
 }
 
@@ -449,7 +449,3 @@ int getBonusValue(bonusPower pwr, int membersN)
 	return 99999;
 }
 
-int main()
-{
-	
-}
