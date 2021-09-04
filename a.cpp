@@ -1,27 +1,5 @@
 #include "a.hpp"
 
-bool Character::isOnTeam(bonusTeam t) const
-{
-	for(auto x : m_bonus_teams)
-	{
-		if (x == t)
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
-void Character::print() const
-{
-	std::cout << "\n ID: " << static_cast<int>(m_id) << "\n Teams: ";
-	for(auto x : m_bonus_teams)
-	{
-		std::cout << static_cast<int>(x) << ", ";
-	}
-	std::cout << "\n";
-}
-
 std::ostream& operator<<(std::ostream& cout, character c)
 {
 	using ch = character;
@@ -543,6 +521,28 @@ std::ostream& operator<<(std::ostream& cout, bonusType t)
 	return cout;
 }
 
+bool Character::isOnTeam(bonusTeam t) const
+{
+	for(auto x : m_bonus_teams)
+	{
+		if (x == t)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+void Character::print() const
+{
+	std::cout << "\n ID: " << m_id << "\n Teams: ";
+	for(auto x : m_bonus_teams)
+	{
+		std::cout << x << ", ";
+	}
+	std::cout << "\n";
+}
+
 auto getCharacterList()
 {
 	std::vector<Character> chList;
@@ -949,12 +949,8 @@ int main()
 {
 	const auto characterList{ getCharacterList() };
 	const auto teamBonuses{ getTeamBonuses() };
-	for(const auto& x : teamBonuses)
-	{
-		std::cout << "\n Team " << x.getID() << ": \n";
-		std::cout << " " << x.getType() << " " << getBonus(x.getPower(), 2)
-		<< " " << getBonus(x.getPower(), 3) << " " << getBonus(x.getPower(), 4) << "\n";
-	}
+	
+	
 	
 	return 0;
 }
