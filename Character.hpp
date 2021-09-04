@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <iostream>
 #include <map>
+#include <vector>
 
 #include "bonuses.hpp"
 
@@ -120,3 +121,4 @@ public:
 std::map<character, Character> getCharacterList();
 
 #endif
+

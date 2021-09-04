@@ -4,7 +4,6 @@
 #include <cstdint>
 #include <iostream>
 #include <map>
-#include <vector>
 
 enum class bonusTeam : std::uint_fast8_t
 {
