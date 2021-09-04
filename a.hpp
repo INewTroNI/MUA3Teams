@@ -23,7 +23,7 @@ enum class bonusTeam : std::uint_fast8_t
 	Generations,
 	HeavyHitters,
 	AgileFighters,
-	UltimateAllience3,
+	UltimateAlliance3,
 	Avengers,
 	X_Force,
 	WomenOfMarvel,
