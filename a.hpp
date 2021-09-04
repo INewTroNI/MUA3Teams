@@ -126,12 +126,13 @@ enum class character : std::uint_fast8_t
 class TeamBonus
 {
 private:
-	const bonusTeam m_id{ bonusTeam::none };
-	const bonusPower m_power{ bonusPower::none };
-	const bonusType m_type{ bonusType::none };
+	bonusTeam m_id{ bonusTeam::none };
+	bonusPower m_power{ bonusPower::none };
+	bonusType m_type{ bonusType::none };
 	
 public:
-	TeamBonus(bonusTeam id, bonusPower power, bonusType type) : m_id{ id }, m_power{ power }, m_type{ type }
+	TeamBonus(bonusTeam id, bonusPower power, bonusType type) 
+		: m_id{ id }, m_power{ power }, m_type{ type }
 	{ }
 	bonusTeam getID() const { return m_id; }
 	bonusPower getPower() const { return m_power; }
@@ -147,7 +148,8 @@ private:
 	std::vector<bonusTeam> m_bonus_teams;
 	
 public:
-	Character(character id = character::none) : m_id{ id }
+	Character(character id = character::none) 
+		: m_id{ id }
 	{ }
 	
 	character getID() const { return m_id; }
