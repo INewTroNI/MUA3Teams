@@ -69,9 +69,7 @@ void Team::calculate()
 	takeCharacterTeams(m_ch4);
 	
 	for(const auto& x : m_teams)
-	{
-		std::cout << x.first << " " << x.second << "\n";
-		
+	{	
 		switch(teamBonuses.at(x.first).getType())
 		{
 			case bonusType::str:
@@ -122,5 +120,18 @@ void Team::reset()
 	m_strBonus = m_durBonus = m_masBonus = m_resBonus
 	= m_vitBonus = m_eneBonus = 0;
 	m_teams.clear();
+}
+
+std::ostream& operator<<(std::ostream& cout, Team t)
+{
+	cout << "\nCharacters:\n " << m_ch1.getID()
+	<< ", " << m_ch2.getID()
+	<< ", " << m_ch3.getID()
+	<< ", " << m_ch4.getID() << "\n";
+	
+	cout << "Active teams bonuses:\n "
+	<< 
+	
+	return cout;
 }
 

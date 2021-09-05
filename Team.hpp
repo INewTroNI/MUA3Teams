@@ -55,6 +55,8 @@ public:
 	}
 	
 	void reset();
+	
+	friend std::ostream& operator<<(std::ostream& cout, Team t);
 };
 
 #endif

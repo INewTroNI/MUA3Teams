@@ -1,5 +1,10 @@
 #include "main.hpp"
 
+int evaluator(int str, int dur, int mas, int res, int vit, int ene)
+{
+	return str + dur + mas + res + vit + ene;
+}
+
 int main()
 {
 	const auto characterList{ getCharacterList() };
@@ -19,6 +24,8 @@ int main()
 	, characterList.at(character::Blade)
 	, characterList.at(character::CptAmerica)
 	, characterList.at(character::Crystal)};
+	
+	std::cout << 
 	
 	return 0;
 }
