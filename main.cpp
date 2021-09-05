@@ -3,7 +3,7 @@
 int main()
 {
 	const auto characterList{ getCharacterList() };
-	const auto teamBonuses{ getTeamBonuses() };
+	/*
 	for(const auto& y : teamBonuses)
 	{
 		const auto& x = y.second;
@@ -13,6 +13,12 @@ int main()
 		<< " " << getBonusValue(x.getPower(), 3) 
 		<< " " << getBonusValue(x.getPower(), 4) << "\n";
 	}
+	*/
+	
+	Team test{ characterList.at(character::BlackPanther)
+	, characterList.at(character::Blade)
+	, characterList.at(character::CptAmerica)
+	, characterList.at(character::Crystal)};
 	
 	return 0;
 }

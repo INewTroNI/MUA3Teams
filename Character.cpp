@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-std::ostream& operator<<(std::ostream& cout, character c)
+std::ostream& operator<<(std::ostream& cout, const character c)
 {
 	using ch = character;
 	switch(c)
@@ -269,7 +269,7 @@ std::ostream& operator<<(std::ostream& cout, character c)
 	return cout;
 }
 
-bool Character::isOnTeam(bonusTeam t) const
+bool Character::isOnTeam(const bonusTeam t) const
 {
 	for(auto x : m_bonus_teams)
 	{

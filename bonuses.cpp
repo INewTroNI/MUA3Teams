@@ -1,6 +1,6 @@
 #include "bonuses.hpp"
 
-std::ostream& operator<<(std::ostream& cout, bonusTeam t)
+std::ostream& operator<<(std::ostream& cout, const bonusTeam t)
 {
 	using bt = bonusTeam;
 	
@@ -206,7 +206,7 @@ std::ostream& operator<<(std::ostream& cout, bonusTeam t)
 	return cout;
 }
 
-std::ostream& operator<<(std::ostream& cout, bonusType t)
+std::ostream& operator<<(std::ostream& cout, const bonusType t)
 {
 	using b_t = bonusType;
 	
@@ -376,7 +376,7 @@ std::map<bonusTeam, TeamBonus> getTeamBonuses()
 	return bnsList;
 }
 
-int getBonusValue(bonusPower pwr, int membersN)
+int TeamBonus::getBonusValue(const int membersN) const
 {
 	if (membersN < 2)
 	{
@@ -389,7 +389,7 @@ int getBonusValue(bonusPower pwr, int membersN)
 	
 	using bp = bonusPower;
 	
-	switch (pwr)
+	switch (m_power)
 	{
 		case bp::bonus1_2_4:
 		{

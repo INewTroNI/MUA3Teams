@@ -74,7 +74,7 @@ private:
 	std::vector<bonusTeam> m_bonus_teams;
 	
 public:
-	Character(character id = character::none) 
+	Character(const character id = character::none) 
 		: m_id{ id }
 	{ }
 	
@@ -82,7 +82,7 @@ public:
 	
 	const auto& getBonusTeams() const { return m_bonus_teams; }
 	
-	bool isOnTeam(bonusTeam t) const;
+	bool isOnTeam(const bonusTeam t) const;
 	
 	Character& setID(const character id)
 	{
@@ -109,7 +109,7 @@ public:
 		ch.addToBonusTeam(t);
 		return ch;
 	}
-	friend std::ostream& operator<<(std::ostream& cout, Character c)
+	friend std::ostream& operator<<(std::ostream& cout, const Character& c)
 	{
 		c.print();
 		return cout;

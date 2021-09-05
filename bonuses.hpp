@@ -84,19 +84,18 @@ private:
 	bonusType m_type{ bonusType::none };
 	
 public:
-	TeamBonus(bonusTeam id = bonusTeam::none
-	, bonusPower power = bonusPower::none
-	, bonusType type = bonusType::none)
+	TeamBonus(const bonusTeam id = bonusTeam::none
+	, const bonusPower power = bonusPower::none
+	, const bonusType type = bonusType::none)
 		: m_id{ id }, m_power{ power }, m_type{ type }
 	{ }
 	bonusTeam getID() const { return m_id; }
 	bonusPower getPower() const { return m_power; }
 	bonusType getType() const { return m_type; }
+	int getBonusValue(const int membersN) const;
 };
 
 // generates list 
 std::map<bonusTeam, TeamBonus> getTeamBonuses();
-
-int getBonusValue(bonusPower pwr, int membersN);
 
 #endif
