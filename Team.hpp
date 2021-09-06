@@ -54,9 +54,11 @@ public:
 		, m_resBonus, m_vitBonus, m_eneBonus);
 	}
 	
+	bool hasCharacter(character ch) const;
+	
 	void reset();
 	
-	friend std::ostream& operator<<(std::ostream& cout, Team t);
+	friend std::ostream& operator<<(std::ostream& cout, const Team& t);
 };
 
 #endif

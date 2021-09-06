@@ -406,13 +406,13 @@ std::map<character, Character> getCharacterList()
 	chList[ch::GhostRider] = temp;
 	
 	temp.setID(ch::Hawkeye).resetBonusTeams()
-	>> bt::AgentsOfSHIELD >> bt::Defenders >> bt::AgileFighters 
+	>> bt::AgentsOfSHIELD >> bt::AgileFighters 
 	>> bt::Avengers >> bt::Partners >> bt::SharpShooters;
 	chList[ch::Hawkeye] = temp;
 	
 	temp.setID(ch::Hulk).resetBonusTeams()
-	>> bt::OriginalAvengers >> bt::HeavyHitters >> bt::Avengers 
-	>> bt::BigBrains >> bt::FantasticFourReserveMembers;
+	>> bt::OriginalAvengers >> bt::Defenders >> bt::HeavyHitters 
+	>> bt::Avengers >> bt::BigBrains >> bt::FantasticFourReserveMembers;
 	chList[ch::Hulk] = temp;
 	
 	temp.setID(ch::HumanTorch).resetBonusTeams()
@@ -570,3 +570,12 @@ std::map<character, Character> getCharacterList()
 	return chList;
 }
 
+bool operator>(const character a, const character b)
+{
+	return static_cast<int>(a) > static_cast<int>(b);
+}
+
+bool operator<(const character a, const character b)
+{
+	return operator>(b,a);
+}

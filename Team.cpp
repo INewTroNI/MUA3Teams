@@ -74,32 +74,32 @@ void Team::calculate()
 		{
 			case bonusType::str:
 			{
-				m_strBonus = teamBonuses.at(x.first).getBonusValue(x.second);
+				m_strBonus += teamBonuses.at(x.first).getBonusValue(x.second);
 				break;
 			}
 			case bonusType::dur:
 			{
-				m_durBonus = teamBonuses.at(x.first).getBonusValue(x.second);
+				m_durBonus += teamBonuses.at(x.first).getBonusValue(x.second);
 				break;
 			}
 			case bonusType::mas:
 			{
-				m_masBonus = teamBonuses.at(x.first).getBonusValue(x.second);
+				m_masBonus += teamBonuses.at(x.first).getBonusValue(x.second);
 				break;
 			}
 			case bonusType::res:
 			{
-				m_resBonus = teamBonuses.at(x.first).getBonusValue(x.second);
+				m_resBonus += teamBonuses.at(x.first).getBonusValue(x.second);
 				break;
 			}
 			case bonusType::vit:
 			{
-				m_vitBonus = teamBonuses.at(x.first).getBonusValue(x.second);
+				m_vitBonus += teamBonuses.at(x.first).getBonusValue(x.second);
 				break;
 			}
 			case bonusType::ene:
 			{
-				m_eneBonus = teamBonuses.at(x.first).getBonusValue(x.second);
+				m_eneBonus += teamBonuses.at(x.first).getBonusValue(x.second);
 				break;
 			}
 			default:
@@ -122,16 +122,36 @@ void Team::reset()
 	m_teams.clear();
 }
 
-std::ostream& operator<<(std::ostream& cout, Team t)
+std::ostream& operator<<(std::ostream& cout, const Team& t)
 {
-	cout << "\nCharacters:\n " << m_ch1.getID()
-	<< ", " << m_ch2.getID()
-	<< ", " << m_ch3.getID()
-	<< ", " << m_ch4.getID() << "\n";
+	cout << "\nCharacters:\n " << t.m_ch1.getID()
+	<< ", " << t.m_ch2.getID()
+	<< ", " << t.m_ch3.getID()
+	<< ", " << t.m_ch4.getID() << ".\n";
 	
-	cout << "Active teams bonuses:\n "
-	<< 
+	cout << "Active teams bonuses:\n ";
+	for(const auto& x : t.m_teams)
+	{
+		if (x.second > 1)
+		{
+			cout << x.first << ", ";
+		}
+	}
+	
+	cout << ".\nStat bonuses:\n "
+	<< bonusType::str << ": " << t.m_strBonus << ", "
+	<< bonusType::dur << ": " << t.m_durBonus << ", "
+	<< bonusType::mas << ": " << t.m_masBonus << ",\n "
+	<< bonusType::res << ": " << t.m_resBonus << ", "
+	<< bonusType::vit << ": " << t.m_vitBonus << ", "
+	<< bonusType::ene << ": " << t.m_eneBonus << "\n";
 	
 	return cout;
+}
+
+bool Team::hasCharacter(character ch) const
+{
+	return ((m_ch1.getID() == ch) || (m_ch2.getID() == ch)
+		|| (m_ch3.getID() == ch) || (m_ch4.getID() == ch));
 }
 
