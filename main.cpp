@@ -1,5 +1,27 @@
 #include "main.hpp"
 
+/*
+	What can be done:
+	*	commenting
+	*	rewriting of search algo
+		*	make it more modular (to easier search for teams with specific character)
+		*	make it part of Team class {X : won't do, Team is about team, not it's library of teams}
+	*	make evaluator use coefficients
+	*	also make score double, not int (more convenient)
+	*	make program take input (it seems I recompiled program more than 100 times after finishing work on it just to tweak search for needs of research :) )
+	*	evolve program beyond initial scope
+		*	get GUI
+		*	get more info on characters to form better teams
+		*	get functionality beyond team forming (like what? my entire excel is about team building, not anything else)
+	
+	also Team class is actually poor written
+	and maybe Character class shouldn't exist
+	so
+	*	rethink program design (only if will write beyond initial scope)
+	
+	btw, operator> for character enum isn't a best thing (it doesn't make much sense outside of best team searching)
+*/
+
 int evaluator(int str, int dur, int mas, int res, int vit, int ene)
 {
 	return str + dur + mas + res + vit + ene;
